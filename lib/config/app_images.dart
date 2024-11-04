@@ -4,5 +4,6 @@ class AllImages{
   factory AllImages() => _instance;
 
   String splashLogo = 'assets/app_icon/app_icon.png';
+  String svgNotificationIcon = 'assets/svg/notification_svg.svg';
 
 }

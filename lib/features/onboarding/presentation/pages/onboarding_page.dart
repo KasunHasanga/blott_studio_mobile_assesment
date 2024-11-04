@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:kasun_hasanga_blott/config/helper.dart';
 import 'package:kasun_hasanga_blott/features/home/presentation/pages/home_page.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../../../../common_widget/app_button.dart';
+import '../../../../config/app_images.dart';
 import '../../../../config/colors.dart';
 import '../../../../config/constants.dart';
 import '../../../../config/fonts.dart';
@@ -48,8 +50,15 @@ class _OnboardingPageState extends State<OnboardingPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(
+                  height: 98,
+                  width: 98,
+                  child: SvgPicture.asset(
+                      AllImages().svgNotificationIcon,
+                      semanticsLabel: "svgNotificationIcongg"),
+                ),
                 const SizedBox(
-                  height: 50,
+                  height: 24,
                 ),
                 FittedBox(
                   child: Text(
