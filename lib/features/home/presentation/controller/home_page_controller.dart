@@ -18,8 +18,8 @@ class HomePageController extends GetxController {
 
   void getInfo() async {
     String firstName = await sharedPref.readSingle(ShardPrefKey.userFirstName);
-    String lastName = await sharedPref.readSingle(ShardPrefKey.userLastName);
-    userName.value = "$firstName $lastName";
+    // String lastName = await sharedPref.readSingle(ShardPrefKey.userLastName);
+    userName.value = firstName;
   }
 
   Future<bool> getGeneralCategoryNews({
