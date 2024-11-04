@@ -13,6 +13,7 @@ class FontSizeValue {
 
 class DateTimeFormatType {
   static const String yearMonthDay = "yyyy-MM-dd";
+  static const String dayMonthYear = 'd MMMM yyyy';
 }
 
 class Constants {

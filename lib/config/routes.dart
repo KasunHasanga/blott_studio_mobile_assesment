@@ -1,7 +1,5 @@
-import 'package:flutter_getx_starter/features/dashboard/dashboard_binding.dart';
 import 'package:get/get.dart';
 
-import '../features/dashboard/presentation/pages/dashboard_page.dart';
 import '../features/home/home_page_binding.dart';
 import '../features/home/presentation/pages/home_page.dart';
 
@@ -30,11 +28,6 @@ class Routers {
         page: () => const OnboardingPage(),
         bindings: [OnBoardingBinding()]),
 
-    //Dashboard
-    GetPage(
-        name: DashboardPage.routeName,
-        page: () => DashboardPage(),
-        bindings: [DashboardBinding()]),
 
     //Home Page
     GetPage(

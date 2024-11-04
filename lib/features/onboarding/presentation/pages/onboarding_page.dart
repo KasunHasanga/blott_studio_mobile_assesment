@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_starter/features/home/presentation/pages/home_page.dart';
 import 'package:get/get.dart';
 import '../../../../common_widget/app_button.dart';
 import '../../../../common_widget/app_text_field.dart';
@@ -84,7 +85,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 buttonRadius: 24,
                 backgroundColor: AppColors.kPrimary,
                 title: "Continue".tr,
-                action: () {},
+                action: () {
+                  Get.offAllNamed(HomePage.routeName);
+                },
               ),
             ),
           )

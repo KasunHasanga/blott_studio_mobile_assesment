@@ -22,40 +22,17 @@ class MainAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (showBack){
     return AppBar(
       elevation: 0,
+      centerTitle: false,
       excludeHeaderSemantics: true,
       title: Text(title,  style: AppFonts.styleWithGilroyMediumText(
           color:Theme.of(context).colorScheme.onSurface,fSize: FontSizeValue.fontSize16),),
-      leading:IconButton(
-        onPressed: () {
-          Get.back();
-        },
-        // icon: Image.asset(backIcon, color: Theme.of(context).colorScheme.onSurface,),
-        icon: Icon(Icons.arrow_back,color: Theme.of(context).colorScheme.onSurface,)
-      ),
 
-      backgroundColor: ThemeService().currentThemeIsDark()
-          ? (excludeHeader ? Colors.transparent : Theme.of(context).colorScheme.background)
-          : (excludeHeader ? Colors.transparent : Theme.of(context).colorScheme.background),
+
+      backgroundColor: Theme.of(context).colorScheme.background,
     );}
-    else{
-      return AppBar(
-        elevation: 0,
-        excludeHeaderSemantics: true,
-        title: Text(title,  style: AppFonts.styleWithGilroyMediumText(
-            color:Theme.of(context).colorScheme.onSurface,fSize: FontSizeValue.fontSize16),),
 
-        actions:[
-          ...otherAction,
-
-        ],
-        backgroundColor: ThemeService().currentThemeIsDark()
-            ? (excludeHeader ? Colors.transparent : Theme.of(context).colorScheme.background)
-            : (excludeHeader ? Colors.transparent : Theme.of(context).colorScheme.background),
-      );
-    }
 
   }
-}
+
