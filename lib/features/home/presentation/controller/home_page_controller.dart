@@ -1,4 +1,4 @@
-import 'package:flutter_getx_starter/features/home/presentation/model/news_response_model.dart';
+import 'package:kasun_hasanga_blott/features/home/presentation/model/news_response_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,4 @@
-import 'package:flutter_getx_starter/common_widget/app_bar.dart';
+import 'package:kasun_hasanga_blott/common_widget/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';

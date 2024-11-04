@@ -1,5 +1,5 @@
-import 'package:flutter_getx_starter/common_widget/app_bar.dart';
-import 'package:flutter_getx_starter/common_widget/app_button.dart';
+import 'package:kasun_hasanga_blott/common_widget/app_bar.dart';
+import 'package:kasun_hasanga_blott/common_widget/app_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_starter/common_widget/app_button.dart';
-import 'package:flutter_getx_starter/features/web_view/presentation/pages/web_view_page.dart';
+import 'package:kasun_hasanga_blott/features/web_view/presentation/pages/web_view_page.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -112,7 +111,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ListView.builder(
+                isLoading?  CircularProgressIndicator(): ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: homePageController.newsResponseModel.length,
