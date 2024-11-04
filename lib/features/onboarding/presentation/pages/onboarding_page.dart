@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kasun_hasanga_blott/config/helper.dart';
 import 'package:kasun_hasanga_blott/features/home/presentation/pages/home_page.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 import '../../../../common_widget/app_button.dart';
 import '../../../../config/colors.dart';
 import '../../../../config/constants.dart';
@@ -17,6 +20,7 @@ class OnboardingPage extends StatefulWidget {
 
 class _OnboardingPageState extends State<OnboardingPage> {
   final formKeySignIn = GlobalKey<FormState>();
+  Helper helper = Helper();
 
   late OnBoardingController onBoardingController;
 
@@ -84,8 +88,61 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 buttonRadius: 24,
                 backgroundColor: AppColors.kPrimary,
                 title: "Continue".tr,
-                action: () {
-                  Get.offAllNamed(HomePage.routeName);
+                action: () async {
+                  final PermissionStatus status =
+                      await Permission.notification.status;
+                  if (status.isGranted) {
+                    Get.offAllNamed(HomePage.routeName);
+                  } else {
+                    showDialog(
+                        context: Get.context!,
+                        builder: (BuildContext context) => CupertinoAlertDialog(
+                              title: Text(
+                                "“Blott” Would Like to Send You Notifications",
+                                style: AppFonts.styleWithGilroySemiBoldText(
+                                    color:
+                                        Theme.of(context).colorScheme.surface,
+                                    fSize: FontSizeValue.fontSize16),
+                              ),
+                              content: Text(
+                                "Notifications may include alerts, sounds, and icon badges. These can be configured in Settings.",
+                                style: AppFonts.styleWithGilroyRegularText(
+                                    color:
+                                        Theme.of(context).colorScheme.surface,
+                                    fSize: FontSizeValue.fontSize13),
+                              ),
+                              actions: <Widget>[
+                                CupertinoDialogAction(
+                                  isDefaultAction: true,
+                                  child: Text(
+                                    "Don’t Allow",
+                                    style: AppFonts.styleWithGilroySemiBoldText(
+                                        color: AppColors.kBlue,
+                                        fSize: FontSizeValue.fontSize13),
+                                  ),
+                                  onPressed: () {
+                                    Get.back();
+                                    Get.offAllNamed(HomePage.routeName);
+                                  },
+                                ),
+                                CupertinoDialogAction(
+                                  child: Text(
+                                    "Allow",
+                                    style: AppFonts.styleWithGilroyRegularText(
+                                        color: AppColors.kBlue,
+                                        fSize: FontSizeValue.fontSize13),
+                                  ),
+                                  onPressed: () async {
+                                    await openAppSettings();
+                                  },
+                                )
+                              ],
+                            ));
+                    // await openAppSettings();
+                    // Notification permissions denied
+                  }
+
+                  // Get.offAllNamed(HomePage.routeName);
                 },
               ),
             ),

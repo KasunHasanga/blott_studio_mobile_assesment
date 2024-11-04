@@ -8,6 +8,7 @@ extension AppColors on BuildContext {
   static const Color kSecondary =Color(0xFFF0FDF8);
   static const Color kOnSecondary =  Color(0xFF4CAF50);
   static const Color kShadowColor = Color(0xFFD6DDEB);
+  static const Color kBlue = Color(0xFF007AFF);
 
   static const Color kOutlineColor = Color(0xFF97D5D5);
 
