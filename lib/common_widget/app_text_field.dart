@@ -64,47 +64,31 @@ class AppTextField extends StatelessWidget {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       style: AppFonts.styleWithGilroyRegularText(
-          fSize: FontSizeValue.fontSize16, color: textColor ?? Theme.of(context).colorScheme.onSurface),
+          fSize: FontSizeValue.fontSize16,
+          color: textColor ?? Theme.of(context).colorScheme.onSurface),
       decoration: InputDecoration(
         // filled: true,
         // fillColor: Theme.of(context).colorScheme.onSurface,
-          counterText: '',
-          suffixIcon: suffixIcon,
-          errorText: errorText,
-          errorStyle: AppFonts.styleWithGilroyMediumText(
-              color: AppColors.kRed, fSize: FontSizeValue.fontSize14),
-          hintText: labelText,
-          hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6)),
+        counterText: '',
+        suffixIcon: suffixIcon,
+        errorText: errorText,
+        errorStyle: AppFonts.styleWithGilroyMediumText(
+            color: AppColors.kRed, fSize: FontSizeValue.fontSize14),
+        hintText: labelText,
+        hintStyle: TextStyle(
+            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6)),
         enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.4)),
+          borderSide: BorderSide(
+              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.4)),
         ),
         focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.4))
-        ),
+            borderSide: BorderSide(
+                color:
+                    Theme.of(context).colorScheme.onSurface.withOpacity(0.4))),
         errorBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.4))
-      ),
-
-
-        // errorBorder: OutlineInputBorder(
-          //     borderRadius: BorderRadius.circular(14),
-          //
-          //     borderSide: const BorderSide(color: AppColors.kRed)),
-          // focusedErrorBorder: OutlineInputBorder(
-          //     borderRadius: BorderRadius.circular(14),
-          //     borderSide: const BorderSide(color: AppColors.kRed)),
-          // enabledBorder: OutlineInputBorder(
-          //     borderSide: const BorderSide(color: AppColors.kBorderColor),
-          //     borderRadius: BorderRadius.circular(14)),
-          // disabledBorder: OutlineInputBorder(
-          //     borderSide: const BorderSide(color: AppColors.kBorderColor),
-          //     borderRadius: BorderRadius.circular(14)),
-          // focusedBorder: OutlineInputBorder(
-          //     borderRadius: BorderRadius.circular(14),
-          //     borderSide: const BorderSide(color: AppColors.kPrimary)),
-          // border: OutlineInputBorder(
-          //     borderSide: const BorderSide(color: AppColors.kBorderColor),
-          //     borderRadius: BorderRadius.circular(14))
+            borderSide: BorderSide(
+                color:
+                    Theme.of(context).colorScheme.onSurface.withOpacity(0.4))),
       ),
     );
   }

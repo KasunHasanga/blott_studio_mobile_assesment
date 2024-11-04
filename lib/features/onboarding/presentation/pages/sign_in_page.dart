@@ -51,28 +51,27 @@ class _SignInPageState extends State<SignInPage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       floatingActionButton: GestureDetector(
         behavior: HitTestBehavior.opaque,
-        onTap:isUserFillNamed() ? () {
-          if (autoValidateMode !=
-              AutovalidateMode.always) {
-            setState(() {
-              autoValidateMode =
-                  AutovalidateMode.always;
-            });
-          }
-          if (formKeySignIn.currentState!.validate()) {
-            //Get.toNamed(DashboardPage.routeName);
-            // onBoardingController.login(
-            //     firstNameTextEditingController.text, lastNameTextEditingController.text);
-          }
-
-        }:null,
+        onTap: isUserFillNamed()
+            ? () {
+                if (autoValidateMode != AutovalidateMode.always) {
+                  setState(() {
+                    autoValidateMode = AutovalidateMode.always;
+                  });
+                }
+                if (formKeySignIn.currentState!.validate()) {
+                  //Get.toNamed(DashboardPage.routeName);
+                  // onBoardingController.login(
+                  //     firstNameTextEditingController.text, lastNameTextEditingController.text);
+                }
+              }
+            : null,
         child: Container(
           width: 56,
           height: 56,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
-            color:
-            isUserFillNamed() ? Theme.of(context).colorScheme.primary
+            color: isUserFillNamed()
+                ? Theme.of(context).colorScheme.primary
                 : Theme.of(context).colorScheme.primary.withOpacity(0.5),
           ),
           child: Icon(
@@ -144,7 +143,6 @@ class _SignInPageState extends State<SignInPage> {
                         },
                       ),
                     ),
-
                   ],
                 ),
               )
