@@ -6,6 +6,7 @@ import '../features/home/home_page_binding.dart';
 import '../features/home/presentation/pages/home_page.dart';
 
 import '../features/onboarding/onboard_binding.dart';
+import '../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../features/onboarding/presentation/pages/sign_in_page.dart';
 import '../features/onboarding/presentation/pages/splash.dart';
 import '../features/profile/presentation/pages/profile_page.dart';
@@ -21,6 +22,12 @@ class Routers {
     GetPage(
         name: SignInPage.routeName,
         page: () => const SignInPage(),
+        bindings: [OnBoardingBinding()]),
+
+    //onboarding Page
+    GetPage(
+        name: OnboardingPage.routeName,
+        page: () => const OnboardingPage(),
         bindings: [OnBoardingBinding()]),
 
     //Dashboard

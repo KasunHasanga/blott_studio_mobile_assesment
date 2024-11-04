@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 extension AppColors on BuildContext {
   static const Color kThemeBackgroundDark = Color(0xFF202330);
   static const Color kThemeBackgroundLight = Color(0xFFFFFFFF);
-  static const Color kPrimary= Color(0xFF62C177);
+  static const Color kPrimary= Color(0xFF523AE4);
   static const Color kOnPrimary = Color(0xFF4CAF50);
   static const Color kSecondary =Color(0xFFF0FDF8);
   static const Color kOnSecondary =  Color(0xFF4CAF50);

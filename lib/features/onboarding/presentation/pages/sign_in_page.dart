@@ -4,6 +4,7 @@ import '../../../../common_widget/app_text_field.dart';
 import '../../../../config/constants.dart';
 import '../../../../config/fonts.dart';
 import '../controller/onboarding_controller.dart';
+import 'onboarding_page.dart';
 
 class SignInPage extends StatefulWidget {
   static const routeName = '/login';
@@ -59,7 +60,7 @@ class _SignInPageState extends State<SignInPage> {
                   });
                 }
                 if (formKeySignIn.currentState!.validate()) {
-                  //Get.toNamed(DashboardPage.routeName);
+                  Get.toNamed(OnboardingPage.routeName);
                   // onBoardingController.login(
                   //     firstNameTextEditingController.text, lastNameTextEditingController.text);
                 }
