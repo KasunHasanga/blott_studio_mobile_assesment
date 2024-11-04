@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_starter/common_widget/app_button.dart';
+import 'package:flutter_getx_starter/features/web_view/presentation/pages/web_view_page.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -131,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                                     color: AppColors.kPrimary,
                                   ))),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 16,
                             ),
                             Expanded(
@@ -140,46 +141,68 @@ class _HomePageState extends State<HomePage> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                          "${homePageController.newsResponseModel[index].source}",     style: AppFonts.styleWithGilroyMediumText(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .onSurface
-                                              .withOpacity(0.6),
-                                          fSize: FontSizeValue.fontSize11),),
-                                      Text(
-                                        DateFormat(
-                                                DateTimeFormatType.dayMonthYear)
-                                            .format(DateTime
-                                                .fromMillisecondsSinceEpoch(
-                                                    homePageController
-                                                            .newsResponseModel[
-                                                                index]
-                                                            .datetime! *
-                                                        1000))
-                                            .toUpperCase(),
-                                          style: AppFonts.styleWithGilroyMediumText(
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .onSurface
-                                                  .withOpacity(0.6),
-                                              fSize: FontSizeValue.fontSize11)
+                                        "${homePageController.newsResponseModel[index].source}",
+                                        style:
+                                            AppFonts.styleWithGilroyMediumText(
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSurface
+                                                    .withOpacity(0.6),
+                                                fSize:
+                                                    FontSizeValue.fontSize11),
                                       ),
+                                      Text(
+                                          DateFormat(DateTimeFormatType
+                                                  .dayMonthYear)
+                                              .format(DateTime
+                                                  .fromMillisecondsSinceEpoch(
+                                                      homePageController
+                                                              .newsResponseModel[
+                                                                  index]
+                                                              .datetime! *
+                                                          1000))
+                                              .toUpperCase(),
+                                          style: AppFonts
+                                              .styleWithGilroyMediumText(
+                                                  color:
+                                                      Theme.of(context)
+                                                          .colorScheme
+                                                          .onSurface
+                                                          .withOpacity(0.6),
+                                                  fSize: FontSizeValue
+                                                      .fontSize11)),
                                     ],
                                   ),
-                                  SizedBox(height: 8,),
-                                  Text(
-                                    "${homePageController.newsResponseModel[index].headline}",
-                                    maxLines: 3,
-                                    overflow: TextOverflow.ellipsis,
-                                      style: AppFonts.styleWithGilroyMediumText(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .onSurface
-                                              .withOpacity(0.6),
-                                          fSize: FontSizeValue.fontSize20)
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.toNamed(WebViewPage.routeName,
+                                          parameters: {
+                                            "url":
+                                                "${homePageController.newsResponseModel[index].url}",
+                                            "headline":
+                                            "${homePageController.newsResponseModel[index].headline}"
+                                          });
+                                    },
+                                    child: Text(
+                                        "${homePageController.newsResponseModel[index].headline}",
+                                        maxLines: 3,
+                                        overflow: TextOverflow.ellipsis,
+                                        style:
+                                            AppFonts.styleWithGilroyMediumText(
+                                                color:
+                                                    Theme.of(context)
+                                                        .colorScheme
+                                                        .onSurface
+                                                        .withOpacity(0.6),
+                                                fSize:
+                                                    FontSizeValue.fontSize20)),
                                   ),
                                 ],
                               ),

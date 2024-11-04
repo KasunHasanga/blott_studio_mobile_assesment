@@ -9,6 +9,8 @@ import '../features/onboarding/presentation/pages/sign_in_page.dart';
 import '../features/onboarding/presentation/pages/splash.dart';
 import '../features/profile/presentation/pages/profile_page.dart';
 import '../features/profile/profile_binding.dart';
+import '../features/web_view/presentation/pages/web_view_page.dart';
+import '../features/web_view/web_view_binding.dart';
 
 class Routers {
   static final route = [
@@ -40,5 +42,12 @@ class Routers {
         name: ProfilePage.routeName,
         page: () => const ProfilePage(),
         bindings: [ProfileBinding()]),
+
+
+    //Web View page
+    GetPage(
+        name: WebViewPage.routeName,
+        page: () => const WebViewPage(),
+        bindings: [WebViewBinding()]),
   ];
 }
