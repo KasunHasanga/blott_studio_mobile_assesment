@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../common_widget/app_button.dart';
 import '../../../../common_widget/app_text_field.dart';
-
-import '../../../../config/app_images.dart';
-import '../../../../config/colors.dart';
 import '../../../../config/constants.dart';
 import '../../../../config/fonts.dart';
-import '../../../dashboard/presentation/pages/dashboard_page.dart';
 import '../controller/onboarding_controller.dart';
 
 class SignInPage extends StatefulWidget {
-  static const routeName = '/sign_in';
+  static const routeName = '/login';
   const SignInPage({super.key});
 
   @override
@@ -20,72 +15,120 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   final formKeySignIn = GlobalKey<FormState>();
-  TextEditingController emailAddress = TextEditingController();
-  TextEditingController password = TextEditingController();
+  TextEditingController firstNameTextEditingController =
+      TextEditingController();
+  TextEditingController lastNameTextEditingController = TextEditingController();
   late OnBoardingController onBoardingController;
 
   @override
   void initState() {
-
     if (Get.isRegistered<OnBoardingController>()) {
       onBoardingController = Get.find();
     } else {
       onBoardingController = Get.put(OnBoardingController());
     }
+    // Add listeners to both TextEditingControllers
+    firstNameTextEditingController.addListener(_onTextChanged);
+    lastNameTextEditingController.addListener(_onTextChanged);
 
     super.initState();
   }
 
-  AutovalidateMode autoValidateMode= AutovalidateMode.disabled;
+  // Trigger UI update when text changes
+  void _onTextChanged() {
+    setState(() {});
+  }
+
+  bool isUserFillNamed() {
+    return firstNameTextEditingController.text.length > 1 &&
+        lastNameTextEditingController.text.length > 1;
+  }
+
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: const PreferredSize(
-      //     preferredSize: Size.fromHeight(60), child: FamiliAppBar()),
       backgroundColor: Theme.of(context).colorScheme.background,
+      floatingActionButton: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap:isUserFillNamed() ? () {
+          if (autoValidateMode !=
+              AutovalidateMode.always) {
+            setState(() {
+              autoValidateMode =
+                  AutovalidateMode.always;
+            });
+          }
+          if (formKeySignIn.currentState!.validate()) {
+            //Get.toNamed(DashboardPage.routeName);
+            // onBoardingController.login(
+            //     firstNameTextEditingController.text, lastNameTextEditingController.text);
+          }
+
+        }:null,
+        child: Container(
+          width: 56,
+          height: 56,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            color:
+            isUserFillNamed() ? Theme.of(context).colorScheme.primary
+                : Theme.of(context).colorScheme.primary.withOpacity(0.5),
+          ),
+          child: Icon(
+            Icons.navigate_next,
+            size: 24,
+            color: Theme.of(context).colorScheme.background,
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Container(
           width: Get.width,
           padding: const EdgeInsets.all(30),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 50,),
-              SizedBox(
-                width: Get.width*0.4,
-                height: Get.width*0.4,
-                child: Image.asset( AllImages().splashLogo),
-              ),
               const SizedBox(
-                height: 20,
+                height: 50,
               ),
               Text(
-                'App Name'.tr,
-                textAlign: TextAlign.center,
+                'Your legal name'.tr,
+                textAlign: TextAlign.start,
                 style: AppFonts.styleWithGilroyMediumText(
-                    color: Theme.of(context).colorScheme.onSurface, fSize: FontSizeValue.fontSize18),
+                    color: Theme.of(context).colorScheme.onSurface,
+                    fSize: FontSizeValue.fontSize25),
               ),
               const SizedBox(
-                height: 20,
+                height: 16,
+              ),
+              Text(
+                'We need to know a bit about you so that we can create your account.'
+                    .tr,
+                textAlign: TextAlign.start,
+                style: AppFonts.styleWithGilroyMediumText(
+                    color: Theme.of(context)
+                        .colorScheme
+                        .onSurface
+                        .withOpacity(0.6),
+                    fSize: FontSizeValue.fontSize16),
+              ),
+              const SizedBox(
+                height: 24,
               ),
               Form(
                 key: formKeySignIn,
-                autovalidateMode:autoValidateMode  ,
+                autovalidateMode: autoValidateMode,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: AppTextField(
-                        labelText: 'Email Address'.tr,
-                        textController: emailAddress,
-                        keyBoardType: TextInputType.emailAddress,
+                        labelText: 'First Name'.tr,
+                        textController: firstNameTextEditingController,
+                        keyBoardType: TextInputType.text,
                         onValidate: (value) {
-                          if (value!.isEmpty) {
-                            return 'email_required'.tr;
-                          } else if (!value.isEmail) {
-                            return 'email_invalid'.tr;
-                          }
-
                           return null;
                         },
                       ),
@@ -93,109 +136,15 @@ class _SignInPageState extends State<SignInPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: AppTextField(
-                        isObscureText: true,
-                        labelText: 'password'.tr,
-                        textController: password,
-                        keyBoardType: TextInputType.emailAddress,
+                        labelText: 'Last Name'.tr,
+                        textController: lastNameTextEditingController,
+                        keyBoardType: TextInputType.text,
                         onValidate: (value) {
-                          if (value!.isEmpty) {
-                            return 'password_required'.tr;
-                          }
                           return null;
                         },
                       ),
                     ),
-                    SizedBox(
-                        width: Get.width,
-                        child: AppButton(
-                          action: () {
-                           // if(autoValidateMode!= AutovalidateMode.always) {
-                           //    setState(() {
-                           //      autoValidateMode = AutovalidateMode.always;
-                           //    });
-                           //  }
-                           //  if (formKeySignIn.currentState!.validate()) {
-                           //    //Get.toNamed(DashboardPage.routeName);
-                           //    onBoardingController.login(
-                           //        emailAddress.text, password.text);
-                           //  }
-                            Get.offAllNamed(DashboardPage.routeName,);
-                          },
-                          title: "Login".tr,
-                          backgroundColor: AppColors.kPrimary,
-                        )),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                         Expanded(
-                            child: Divider(
-                              color: Theme.of(context).colorScheme.shadow.withOpacity(0.4),
-                          height: 1,
-                          thickness: 1,
-                        )),
-                        Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: Text(
-                            "or login with".tr,
-                            style: AppFonts.styleWithGilroyMediumText(
-                                color: Theme.of(context).colorScheme.onSurface,
-                                fSize: FontSizeValue.fontSize18),
-                          ),
-                        ),
-                         Expanded(
-                            child: Divider(
-                              color: Theme.of(context).colorScheme.shadow,
-                          height: 1,
-                          thickness: 1,
-                        )),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                            child: TextButton(
-                          onPressed: () {},
-                          child: Container(
-                            height: 50,
-                            width: Get.width / 3,
-                            decoration: BoxDecoration(
-                                color: Theme.of(context).colorScheme.secondary,
-                                borderRadius: BorderRadius.circular(14),
-                                border: Border.all(
-                                    color: Theme.of(context).colorScheme.outline, width: 1)),
-                            child: Image.asset(AllImages().imgFacebook),
-                          ),
-                        )),
-                        Expanded(
-                            child: TextButton(
-                          onPressed: () {},
-                          child: Container(
-                            height: 50,
-                            width: Get.width / 3,
-                            decoration: BoxDecoration(
-                                color: Theme.of(context).colorScheme.secondary,
-                                borderRadius: BorderRadius.circular(14),
-                                border: Border.all(
-                                    color: Theme.of(context).colorScheme.outline, width: 1)),
-                            child: Image.asset(AllImages().imgGoogle),
-                          ),
-                        )),
-                        Expanded(
-                            child: TextButton(
-                          onPressed: () {},
-                          child: Container(
-                            height: 50,
-                            width: Get.width / 3,
-                            decoration: BoxDecoration(
-                                color: Theme.of(context).colorScheme.secondary,
-                                borderRadius: BorderRadius.circular(14),
-                                border: Border.all(
-                                    color: Theme.of(context).colorScheme.outline, width: 1)),
-                            child: Image.asset(AllImages().imgApple),
-                          ),
-                        )),
-                      ],
-                    )
+
                   ],
                 ),
               )
