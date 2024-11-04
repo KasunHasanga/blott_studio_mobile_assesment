@@ -10,6 +10,7 @@ import '../../../../common_widget/app_bar.dart';
 import '../../../../config/colors.dart';
 import '../../../../config/constants.dart';
 import '../../../../config/fonts.dart';
+import '../../../../config/theme/theme_service.dart';
 import '../controller/home_page_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,8 +31,22 @@ class _HomePageState extends State<HomePage> {
     } else {
       homePageController = Get.put(HomePageController());
     }
-
+    getGeneralCategoryNews();
+    initialization();
     super.initState();
+  }
+  bool isLightModeSelected = false;
+  bool isAuto = false;
+
+  void initialization() async {
+    isAuto = ThemeService().getAutoThemeStatus();
+    if (isAuto) {
+      isLightModeSelected = ThemeService().currentThemeIsDark();
+    } else {
+      isLightModeSelected = ThemeService().getThemeStatus();
+    }
+
+    setState(() {});
   }
 
   bool isLoading = false;
@@ -56,6 +71,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: globalKey,
+        extendBodyBehindAppBar:true,
         backgroundColor: Theme.of(context).colorScheme.background,
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(60),
@@ -63,15 +79,29 @@ class _HomePageState extends State<HomePage> {
             title: 'Hey Kasun Hasanga'.tr,
             otherAction: [
               GestureDetector(
-                onTap: () {},
-                child: const Padding(
-                  padding: EdgeInsets.only(right: 10),
-                  child: Icon(
-                    Icons.notifications_active_outlined,
-                    color: AppColors.kPrimary,
-                  ),
+                onTap: () {
+                  setState(() {
+                    isLightModeSelected = !isLightModeSelected;
+                    ThemeService().switchTheme(isLightModeSelected);
+                    isAuto = false;
+                    setState(() {});
+                  });
+                },
+                child: isLightModeSelected
+                    ? const Icon(
+                  Icons.wb_sunny,
+                  key: Key('sunny'),
+                  color: Colors.white,
+                  size: 30,
+                )
+                    : const Icon(
+                  Icons.brightness_2,
+                  key: Key('moon'),
+                  color: Colors.black,
+                  size: 30,
                 ),
-              )
+              ),
+              const SizedBox(width: 15,)
             ],
           ),
         ),
@@ -82,13 +112,6 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppButton(
-                  title: "title",
-                  backgroundColor: Colors.red,
-                  action: () {
-                    getGeneralCategoryNews();
-                  },
-                ),
                 ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),

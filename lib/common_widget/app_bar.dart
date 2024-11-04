@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../config/constants.dart';
 import '../config/fonts.dart';
-import '../config/theme/theme_service.dart';
-import 'package:get/get.dart';
 
 class MainAppBar extends StatelessWidget {
   const MainAppBar({
@@ -25,10 +23,10 @@ class MainAppBar extends StatelessWidget {
     return AppBar(
       elevation: 0,
       centerTitle: false,
-      excludeHeaderSemantics: true,
+      surfaceTintColor: Colors.transparent,
       title: Text(title,  style: AppFonts.styleWithGilroyMediumText(
           color:Theme.of(context).colorScheme.onSurface,fSize: FontSizeValue.fontSize16),),
-
+actions: otherAction,
 
       backgroundColor: Theme.of(context).colorScheme.background,
     );}
