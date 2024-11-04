@@ -55,9 +55,9 @@ class _WebViewPageState extends State<WebViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.surface,
-        appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(60),
-          child: MainAppBar(title: 'fff',),
+        appBar:  PreferredSize(
+          preferredSize: const Size.fromHeight(60),
+          child: MainAppBar(title:"${Get.parameters['headline']}",),
         ),
         // drawer: const AppDrawer(),
         body: WebViewWidget(controller: controller));
