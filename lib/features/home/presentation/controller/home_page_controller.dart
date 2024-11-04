@@ -3,6 +3,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart' as dio;
+import '../../../../config/constants.dart';
 import '../../../../core/network/client.dart';
 import '../../../../core/shared_preferences.dart';
 
@@ -13,6 +14,13 @@ class HomePageController extends GetxController {
   // Define the RxList to hold your news articles
   RxList<NewsResponseModel> newsResponseModel = <NewsResponseModel>[].obs;
 
+  RxString userName = "".obs;
+
+  void getInfo() async {
+    String firstName = await sharedPref.readSingle(ShardPrefKey.userFirstName);
+    String lastName = await sharedPref.readSingle(ShardPrefKey.userLastName);
+    userName.value = "$firstName $lastName";
+  }
 
   Future<bool> getGeneralCategoryNews({
     required GlobalKey<ScaffoldState> scaffoldKey,
@@ -31,7 +39,8 @@ class HomePageController extends GetxController {
         // Clear previous data
         newsResponseModel.clear();
         // Parse the JSON list into the RxList
-        newsResponseModel.addAll(NewsResponseModel.fromJsonList(response!.data));
+        newsResponseModel
+            .addAll(NewsResponseModel.fromJsonList(response!.data));
         return true;
       } else {
         print("Unexpected data format: ${response?.data}");
