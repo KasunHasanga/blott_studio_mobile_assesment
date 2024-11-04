@@ -54,15 +54,9 @@ class Clinet {
   Future<Response?> get(String url,
       {Map<String, dynamic>? query,
       dynamic data = null,
-        bool isAuthAvailable = false,
-      required GlobalKey<ScaffoldState> scaffoldKey,
-      bool showError = true}) async {
+      required GlobalKey<ScaffoldState> scaffoldKey,}) async {
     try {
-      // if (isAuthAvailable) {
-      //   String token =
-      //       await sharedPref.readSingle(ShardPrefKey.userToken) ?? "";
-      //   dio.options.headers["Authorization"] = "Bearer $token";
-      // }
+
       Response? response = await dio.get(url, queryParameters: query);
       Logger.Yellow.log(
           "🐛 RESPONSE statusCode " + response.statusCode.toString());
@@ -81,7 +75,9 @@ class Clinet {
       }
       Logger.Blue.log("🐛 RESPONSE data " + response.data.toString());
       return response;
-    } catch (e) {
+    } on DioException catch (e){
+      return e.response;
+    }catch (e) {
      print(e.toString());
       Logger.Red.log("🐛 RESPONSE ERROR: " + e.toString());
     }
