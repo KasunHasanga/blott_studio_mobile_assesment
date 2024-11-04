@@ -44,7 +44,7 @@ class OnBoardingController extends GetxController {
         // _helper.changeLanguage(locale);
       }
 
-        if (await storage.containsKey(key: ShardPrefKey.userFirstName)) {
+        if (await sharedPref.check( ShardPrefKey.userFirstName)) {
           Get.off(() => const HomePage());
         } else {
           Get.off(() => const SignInPage());

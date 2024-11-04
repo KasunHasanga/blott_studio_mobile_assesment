@@ -1,11 +1,15 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:kasun_hasanga_blott/features/home/presentation/model/news_response_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart' as dio;
+import 'package:kasun_hasanga_blott/features/home/presentation/pages/api_error_page.dart';
 import '../../../../config/constants.dart';
 import '../../../../core/network/client.dart';
 import '../../../../core/shared_preferences.dart';
+
 
 class HomePageController extends GetxController {
   SharedPref sharedPref = SharedPref();
@@ -28,9 +32,7 @@ class HomePageController extends GetxController {
     try {
       // Perform the API call
       dio.Response? response = await client.get(
-        'news?category=general&token=cskehn1r01qn1f3vjta0cskehn1r01qn1f3vjtag',
-        showError: true,
-        isAuthAvailable: false,
+        'news?category=general&token=${dotenv.env['API_KEY']}',
         scaffoldKey: scaffoldKey,
       );
 
@@ -43,11 +45,17 @@ class HomePageController extends GetxController {
             .addAll(NewsResponseModel.fromJsonList(response!.data));
         return true;
       } else {
-        print("Unexpected data format: ${response?.data}");
+        if (kDebugMode) {
+          print("Unexpected data format: ${response?.data}");
+        }
+        Get.toNamed(ApiErrorPage.routeName,arguments:"${response?.data["error"]}" );
         return false;
       }
     } catch (e) {
-      print("Error: $e");
+      if (kDebugMode) {
+        print("Error: $e");
+      }
+      Get.toNamed(ApiErrorPage.routeName,arguments:"Something went wrong. Please try again later." );
       return false;
     }
   }
