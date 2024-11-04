@@ -1,4 +1,4 @@
-import 'package:flutter_getx_starter/common_widget/app_bar.dart';
+import 'package:kasun_hasanga_blott/common_widget/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -55,9 +55,9 @@ class _WebViewPageState extends State<WebViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.surface,
-        appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(60),
-          child: MainAppBar(title: 'fff',),
+        appBar:  PreferredSize(
+          preferredSize: const Size.fromHeight(60),
+          child: MainAppBar(title:"${Get.parameters['headline']}",),
         ),
         // drawer: const AppDrawer(),
         body: WebViewWidget(controller: controller));

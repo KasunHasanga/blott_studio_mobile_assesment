@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_starter/config/theme/text_theme.dart';
+import 'package:kasun_hasanga_blott/config/theme/text_theme.dart';
 
 import '../colors.dart';
 

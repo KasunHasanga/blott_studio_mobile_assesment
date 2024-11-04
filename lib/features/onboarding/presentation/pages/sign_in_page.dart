@@ -60,9 +60,9 @@ class _SignInPageState extends State<SignInPage> {
                   });
                 }
                 if (formKeySignIn.currentState!.validate()) {
-                  Get.toNamed(OnboardingPage.routeName);
-                  // onBoardingController.login(
-                  //     firstNameTextEditingController.text, lastNameTextEditingController.text);
+
+                  onBoardingController.saveUserInfo(
+                      firstNameTextEditingController.text, lastNameTextEditingController.text);
                 }
               }
             : null,

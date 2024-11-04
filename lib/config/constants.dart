@@ -22,5 +22,7 @@ class Constants {
 
 class ShardPrefKey {
   static const sessionToken = "SESSION_TOKEN";
+  static const userFirstName = "USER_FIRST_NAME";
+  static const userLastName = "USER_LAST_NAME";
   static const appLocale = "APP_LOCALE";
 }

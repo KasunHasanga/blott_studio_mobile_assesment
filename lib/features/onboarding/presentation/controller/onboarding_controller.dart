@@ -3,9 +3,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
+import 'package:kasun_hasanga_blott/features/home/presentation/pages/home_page.dart';
 
 import '../../../../config/constants.dart';
 import '../../../../core/shared_preferences.dart';
+import '../pages/onboarding_page.dart';
 import '../pages/sign_in_page.dart';
 
 
@@ -16,7 +18,6 @@ class OnBoardingController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
 
     super.onInit();
   }
@@ -43,8 +44,8 @@ class OnBoardingController extends GetxController {
         // _helper.changeLanguage(locale);
       }
 
-        if (await storage.containsKey(key: ShardPrefKey.sessionToken)) {
-          Get.off(() => const SignInPage());
+        if (await storage.containsKey(key: ShardPrefKey.userFirstName)) {
+          Get.off(() => const HomePage());
         } else {
           Get.off(() => const SignInPage());
         }
@@ -62,5 +63,11 @@ class OnBoardingController extends GetxController {
     } else if (selectedLocale.languageCode == "en") {
       selectedLanguage.value = "en";
     }
+  }
+
+  void saveUserInfo(String firstName,String lastName)async{
+   await sharedPref.saveSingle(ShardPrefKey.userFirstName, firstName);
+   await sharedPref.saveSingle(ShardPrefKey.userLastName, lastName);
+   Get.toNamed(OnboardingPage.routeName);
   }
 }

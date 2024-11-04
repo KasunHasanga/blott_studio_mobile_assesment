@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_starter/common_widget/app_button.dart';
-import 'package:flutter_getx_starter/features/web_view/presentation/pages/web_view_page.dart';
+import 'package:kasun_hasanga_blott/features/web_view/presentation/pages/web_view_page.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -35,10 +34,12 @@ class _HomePageState extends State<HomePage> {
     initialization();
     super.initState();
   }
+
   bool isLightModeSelected = false;
   bool isAuto = false;
 
   void initialization() async {
+    homePageController.getInfo();
     isAuto = ThemeService().getAutoThemeStatus();
     if (isAuto) {
       isLightModeSelected = ThemeService().currentThemeIsDark();
@@ -71,12 +72,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: globalKey,
-        extendBodyBehindAppBar:true,
+        extendBodyBehindAppBar: true,
         backgroundColor: Theme.of(context).colorScheme.background,
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(60),
           child: MainAppBar(
-            title: 'Hey Kasun Hasanga'.tr,
+            title: 'Hey ${homePageController.userName}'.tr,
             otherAction: [
               GestureDetector(
                 onTap: () {
@@ -89,19 +90,21 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: isLightModeSelected
                     ? const Icon(
-                  Icons.wb_sunny,
-                  key: Key('sunny'),
-                  color: Colors.white,
-                  size: 30,
-                )
+                        Icons.wb_sunny,
+                        key: Key('sunny'),
+                        color: Colors.white,
+                        size: 30,
+                      )
                     : const Icon(
-                  Icons.brightness_2,
-                  key: Key('moon'),
-                  color: Colors.black,
-                  size: 30,
-                ),
+                        Icons.brightness_2,
+                        key: Key('moon'),
+                        color: Colors.black,
+                        size: 30,
+                      ),
               ),
-              const SizedBox(width: 15,)
+              const SizedBox(
+                width: 15,
+              )
             ],
           ),
         ),
@@ -112,128 +115,130 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: homePageController.newsResponseModel.length,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        padding: EdgeInsets.only(top: 16, bottom: 16),
-                        child: Row(
-                          children: [
-                            CachedNetworkImage(
-                              imageUrl:
-                                  "${homePageController.newsResponseModel[index].image}",
-                              fit: BoxFit.fill,
-                              width: 100,
-                              height: 100,
-                              errorWidget: (context, url, error) => Container(
-                                height: 100,
-                                width: 100,
-                                decoration: const BoxDecoration(
-                                  color: Colors.blue,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(100.0),
-                                  ),
-                                ),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "",
-                                  textAlign: TextAlign.center,
-                                  style: AppFonts.styleWithGilroyMediumText(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onSurface,
-                                      fSize: FontSizeValue.fontSize11),
-                                ),
-                              ),
-                              placeholder: (context, url) => const SizedBox(
-                                  height: 40,
-                                  width: 40,
-                                  child: Center(
-                                      child: CircularProgressIndicator(
-                                    color: AppColors.kPrimary,
-                                  ))),
-                            ),
-                            const SizedBox(
-                              width: 16,
-                            ),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        "${homePageController.newsResponseModel[index].source}",
-                                        style:
-                                            AppFonts.styleWithGilroyMediumText(
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .onSurface
-                                                    .withOpacity(0.6),
-                                                fSize:
-                                                    FontSizeValue.fontSize11),
+                isLoading
+                    ? CircularProgressIndicator()
+                    : ListView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemCount: homePageController.newsResponseModel.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            padding: EdgeInsets.only(top: 16, bottom: 16),
+                            child: Row(
+                              children: [
+                                CachedNetworkImage(
+                                  imageUrl:
+                                      "${homePageController.newsResponseModel[index].image}",
+                                  fit: BoxFit.fill,
+                                  width: 100,
+                                  height: 100,
+                                  errorWidget: (context, url, error) =>
+                                      Container(
+                                    height: 100,
+                                    width: 100,
+                                    decoration: const BoxDecoration(
+                                      color: Colors.blue,
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(100.0),
                                       ),
-                                      Text(
-                                          DateFormat(DateTimeFormatType
-                                                  .dayMonthYear)
-                                              .format(DateTime
-                                                  .fromMillisecondsSinceEpoch(
-                                                      homePageController
-                                                              .newsResponseModel[
-                                                                  index]
-                                                              .datetime! *
-                                                          1000))
-                                              .toUpperCase(),
-                                          style: AppFonts
-                                              .styleWithGilroyMediumText(
-                                                  color:
-                                                      Theme.of(context)
-                                                          .colorScheme
-                                                          .onSurface
-                                                          .withOpacity(0.6),
-                                                  fSize: FontSizeValue
-                                                      .fontSize11)),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 8,
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Get.toNamed(WebViewPage.routeName,
-                                          parameters: {
-                                            "url":
-                                                "${homePageController.newsResponseModel[index].url}",
-                                            "headline":
-                                            "${homePageController.newsResponseModel[index].headline}"
-                                          });
-                                    },
+                                    ),
+                                    alignment: Alignment.center,
                                     child: Text(
-                                        "${homePageController.newsResponseModel[index].headline}",
-                                        maxLines: 3,
-                                        overflow: TextOverflow.ellipsis,
-                                        style:
-                                            AppFonts.styleWithGilroyMediumText(
-                                                color:
-                                                    Theme.of(context)
+                                      "",
+                                      textAlign: TextAlign.center,
+                                      style: AppFonts.styleWithGilroyMediumText(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onSurface,
+                                          fSize: FontSizeValue.fontSize11),
+                                    ),
+                                  ),
+                                  placeholder: (context, url) => const SizedBox(
+                                      height: 40,
+                                      width: 40,
+                                      child: Center(
+                                          child: CircularProgressIndicator(
+                                        color: AppColors.kPrimary,
+                                      ))),
+                                ),
+                                const SizedBox(
+                                  width: 16,
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "${homePageController.newsResponseModel[index].source}",
+                                            style: AppFonts
+                                                .styleWithGilroyMediumText(
+                                                    color: Theme.of(context)
                                                         .colorScheme
                                                         .onSurface
                                                         .withOpacity(0.6),
-                                                fSize:
-                                                    FontSizeValue.fontSize20)),
+                                                    fSize: FontSizeValue
+                                                        .fontSize11),
+                                          ),
+                                          Text(
+                                              DateFormat(DateTimeFormatType
+                                                      .dayMonthYear)
+                                                  .format(DateTime
+                                                      .fromMillisecondsSinceEpoch(
+                                                          homePageController
+                                                                  .newsResponseModel[
+                                                                      index]
+                                                                  .datetime! *
+                                                              1000))
+                                                  .toUpperCase(),
+                                              style: AppFonts
+                                                  .styleWithGilroyMediumText(
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .onSurface
+                                                          .withOpacity(0.6),
+                                                      fSize: FontSizeValue
+                                                          .fontSize11)),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 8,
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          Get.toNamed(WebViewPage.routeName,
+                                              parameters: {
+                                                "url":
+                                                    "${homePageController.newsResponseModel[index].url}",
+                                                "headline":
+                                                    "${homePageController.newsResponseModel[index].headline}"
+                                              });
+                                        },
+                                        child: Text(
+                                            "${homePageController.newsResponseModel[index].headline}",
+                                            maxLines: 3,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: AppFonts
+                                                .styleWithGilroyMediumText(
+                                                    color: Theme.of(context)
+                                                        .colorScheme
+                                                        .onSurface
+                                                        .withOpacity(0.6),
+                                                    fSize: FontSizeValue
+                                                        .fontSize20)),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                      );
-                    })
+                          );
+                        })
               ],
             ),
           ),

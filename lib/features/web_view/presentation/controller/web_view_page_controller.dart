@@ -1,5 +1,5 @@
 
-import 'package:flutter_getx_starter/config/helper.dart';
+import 'package:kasun_hasanga_blott/config/helper.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
