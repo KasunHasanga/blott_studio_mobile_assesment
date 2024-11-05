@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage> {
             child: SmartRefresher(
               enablePullDown: true,
               enablePullUp: false,
-              header: WaterDropHeader(),
+              header: const WaterDropHeader(),
               controller: _refreshController,
               onRefresh:()=> getGeneralCategoryNews(),
               // onLoading: _onLoading,
@@ -245,7 +245,7 @@ class _HomePageState extends State<HomePage> {
                                                overflow:
                                                    TextOverflow.ellipsis,
                                                style: AppFonts
-                                                   .styleWithRobotoMediumText(
+                                                   .styleWithRobotoRegularText(
                                                        color: Theme.of(
                                                                context)
                                                            .colorScheme
