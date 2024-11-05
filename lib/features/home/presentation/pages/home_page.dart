@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:kasun_hasanga_blott/common_widget/app_button.dart';
 import 'package:kasun_hasanga_blott/features/web_view/presentation/pages/web_view_page.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -116,6 +117,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  AppButton(title: "title", backgroundColor: Colors.red,action: ()=>getGeneralCategoryNews(),),
                   isLoading
                       ? const Center(child: CircularProgressIndicator())
                       : homePageController.newsResponseModel.isNotEmpty
@@ -254,7 +256,12 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 );
                               })
-                          : Container()
+                          :  Text(
+                    "Something went wrong. Please try again later.",
+                    style: AppFonts.styleWithRubikRegularText(
+                        color: Theme.of(context).colorScheme.onSurface,
+                        fSize: FontSizeValue.fontSize16),
+                  )
                 ],
               ),
             ),

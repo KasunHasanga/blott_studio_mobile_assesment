@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 import '../features/home/home_page_binding.dart';
-import '../features/home/presentation/pages/api_error_page.dart';
+
 import '../features/home/presentation/pages/home_page.dart';
 
 import '../features/onboarding/onboard_binding.dart';
@@ -35,10 +35,7 @@ class Routers {
         page: () => const HomePage(),
         bindings: [HomePageBinding()]),
 
-    GetPage(
-        name: ApiErrorPage.routeName,
-        page: () => const ApiErrorPage(),
-        bindings: [HomePageBinding()]),
+
 
     //Web View page
     GetPage(
