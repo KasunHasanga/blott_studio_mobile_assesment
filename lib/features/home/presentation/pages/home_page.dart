@@ -185,9 +185,9 @@ class _HomePageState extends State<HomePage> {
                                                       .spaceBetween,
                                               children: [
                                                 Text(
-                                                  "${homePageController.newsResponseModel[index].source}",
+                                                  "${homePageController.newsResponseModel[index].source}".toUpperCase(),
                                                   style: AppFonts
-                                                      .styleWithRobotoMediumText(
+                                                      .styleWithRubikRegularText(
                                                           color: Theme.of(
                                                                   context)
                                                               .colorScheme
@@ -208,7 +208,7 @@ class _HomePageState extends State<HomePage> {
                                                                 1000))
                                                         .toUpperCase(),
                                                     style: AppFonts
-                                                        .styleWithRobotoMediumText(
+                                                        .styleWithRubikRegularText(
                                                             color: Theme.of(
                                                                     context)
                                                                 .colorScheme

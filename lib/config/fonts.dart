@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppFonts {
-  static const gilroy = 'Roboto';
+  static const roboto = 'Roboto';
+  static const rubik = 'Rubik';
 
   /// Gilroy light style. Default font size is 10, default color White.
   static TextStyle styleWithRobotoSemiBoldText(
@@ -11,7 +12,7 @@ class AppFonts {
           fontSize: fSize * (Get.width * 0.01),
           color: color,
           fontWeight: FontWeight.w600,
-          fontFamily: gilroy);
+          fontFamily: roboto);
 
   ///
   static TextStyle styleWithRobotoMediumText({
@@ -22,7 +23,7 @@ class AppFonts {
           fontSize: fSize * (Get.width * 0.01),
           color: color,
           fontWeight: FontWeight.w500,
-          fontFamily: gilroy);
+          fontFamily: roboto);
 
   ///
   static TextStyle styleWithRobotoRegularText(
@@ -30,7 +31,15 @@ class AppFonts {
       TextStyle(
           fontSize: fSize * (Get.width * 0.01),
           color: color,
-          fontFamily: gilroy);
+          fontFamily: roboto);
+
+  ///
+  static TextStyle styleWithRubikRegularText(
+          {Color color = Colors.black, double fSize = 3.2}) =>
+      TextStyle(
+          fontSize: fSize * (Get.width * 0.01),
+          color: color,
+          fontFamily: rubik);
 
   ///
   static TextStyle styleWithRobotoBoldText(
@@ -39,7 +48,7 @@ class AppFonts {
           fontSize: fSize * (Get.width * 0.01),
           color: color,
           fontWeight: FontWeight.w700,
-          fontFamily: gilroy);
+          fontFamily: roboto);
 
   
 }
