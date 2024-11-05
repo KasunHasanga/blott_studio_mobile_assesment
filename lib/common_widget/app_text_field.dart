@@ -64,7 +64,7 @@ class AppTextField extends StatelessWidget {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       style: AppFonts.styleWithRobotoRegularText(
-          fSize: FontSizeValue.fontSize16,
+          fSize: FontSizeValue.fontSize20,
           color: textColor ?? Theme.of(context).colorScheme.onSurface),
       decoration: InputDecoration(
         // filled: true,

@@ -74,10 +74,13 @@ class _SignInPageState extends State<SignInPage> {
                 ? Theme.of(context).colorScheme.primary
                 : Theme.of(context).colorScheme.primary.withOpacity(0.3),
           ),
-          child: Icon(
-            Icons.navigate_next,
-            size: 24,
-            color: Theme.of(context).colorScheme.background,
+          child: SizedBox(
+            height: 24,
+            width: 24,
+            child: Icon(
+              Icons.navigate_next,
+              color: Theme.of(context).colorScheme.background,
+            ),
           ),
         ),
       ),
@@ -94,18 +97,18 @@ class _SignInPageState extends State<SignInPage> {
               Text(
                 'Your legal name'.tr,
                 textAlign: TextAlign.start,
-                style: AppFonts.styleWithRobotoMediumText(
+                style: AppFonts.styleWithRobotoBoldText(
                     color: Theme.of(context).colorScheme.onSurface,
                     fSize: FontSizeValue.fontSize25),
               ),
               const SizedBox(
-                height: 16,
+                height: 26,
               ),
               Text(
                 'We need to know a bit about you so that we can create your account.'
                     .tr,
                 textAlign: TextAlign.start,
-                style: AppFonts.styleWithRobotoMediumText(
+                style: AppFonts.styleWithRobotoRegularText(
                     color: Theme.of(context)
                         .colorScheme
                         .onSurface
