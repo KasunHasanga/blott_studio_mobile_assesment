@@ -118,6 +118,10 @@ flutter:
           weight: 600
         - asset: font/roboto/Roboto-Bold.ttf
           weight: 700
+    - family: raleway
+      fonts:
+        - asset: font/raleway/Raleway-Bold.ttf
+          weight: 700
 
     - family: Rubik
       fonts:

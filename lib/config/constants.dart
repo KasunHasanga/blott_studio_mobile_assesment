@@ -1,4 +1,5 @@
 class FontSizeValue {
+  static const fontSize32 = 8.0;
   static const fontSize28 = 7.2;
   static const fontSize25 = 6.7;
   static const fontSize24 = 6.3;
