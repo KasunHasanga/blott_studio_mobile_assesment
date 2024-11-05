@@ -16,7 +16,7 @@ class OnBoardingController extends GetxController {
   RxString selectedLanguage = "si".obs;
 
   checkSessionStatus() async {
-    await Future.delayed(const Duration(seconds: 5), () async {
+    await Future.delayed(const Duration(seconds: 2), () async {
       if (await sharedPref.check(ShardPrefKey.appLocale)) {
         String currentLocale =
             await sharedPref.readSingle(ShardPrefKey.appLocale);
