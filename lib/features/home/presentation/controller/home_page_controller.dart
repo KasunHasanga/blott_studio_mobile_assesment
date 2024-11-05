@@ -31,7 +31,7 @@ class HomePageController extends GetxController {
     try {
       // Perform the API call
       dio.Response? response = await client.get(
-        'news?category=general&token=${dotenv.env['API_KEY']}',
+        'news?category=general&token=${dotenv.env['API_KEY']} d',
         scaffoldKey: scaffoldKey,
       );
 

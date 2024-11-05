@@ -72,7 +72,7 @@ class _SignInPageState extends State<SignInPage> {
             borderRadius: BorderRadius.circular(50),
             color: isUserFillNamed()
                 ? Theme.of(context).colorScheme.primary
-                : Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                : Theme.of(context).colorScheme.primary.withOpacity(0.3),
           ),
           child: Icon(
             Icons.navigate_next,
@@ -124,7 +124,7 @@ class _SignInPageState extends State<SignInPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: AppTextField(
-                        labelText: 'First Name'.tr,
+                        labelText: 'First name'.tr,
                         textController: firstNameTextEditingController,
                         keyBoardType: TextInputType.text,
                         onValidate: (value) {
@@ -135,7 +135,7 @@ class _SignInPageState extends State<SignInPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: AppTextField(
-                        labelText: 'Last Name'.tr,
+                        labelText: 'Last name'.tr,
                         textController: lastNameTextEditingController,
                         keyBoardType: TextInputType.text,
                         onValidate: (value) {

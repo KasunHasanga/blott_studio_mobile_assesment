@@ -45,7 +45,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           Container(
             width: Get.width,
             alignment: Alignment.center,
-            padding: const EdgeInsets.all(30),
+            padding: const EdgeInsets.all(24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -65,7 +65,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     textAlign: TextAlign.start,
                     style: AppFonts.styleWithGilroyMediumText(
                         color: Theme.of(context).colorScheme.onSurface,
-                        fSize: FontSizeValue.fontSize25),
+                        fSize: FontSizeValue.fontSize24),
                   ),
                 ),
                 const SizedBox(
@@ -75,7 +75,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   'Allow notifications to stay in the loop with your payments, requests and groups.'
                       .tr,
                   textAlign: TextAlign.center,
-                  style: AppFonts.styleWithGilroyMediumText(
+                  style: AppFonts.styleWithGilroyRegularText(
                       color: Theme.of(context)
                           .colorScheme
                           .onSurface
@@ -94,6 +94,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               height: 48,
               child: AppButton(
                 buttonRadius: 24,
+                fSize: FontSizeValue.fontSize16,
                 backgroundColor: AppColors.kPrimary,
                 title: "Continue".tr,
                 action: () async {

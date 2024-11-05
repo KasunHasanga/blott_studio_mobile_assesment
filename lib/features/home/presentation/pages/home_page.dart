@@ -243,8 +243,7 @@ class _HomePageState extends State<HomePage> {
                                                           color: Theme.of(
                                                                   context)
                                                               .colorScheme
-                                                              .onSurface
-                                                              .withOpacity(0.6),
+                                                              .onSurface,
                                                           fSize: FontSizeValue
                                                               .fontSize20)),
                                             ),
