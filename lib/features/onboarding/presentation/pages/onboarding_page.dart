@@ -12,6 +12,7 @@ import '../../../../config/constants.dart';
 import '../../../../config/fonts.dart';
 import '../controller/onboarding_controller.dart';
 
+
 class OnboardingPage extends StatefulWidget {
   static const routeName = '/onboarding';
   const OnboardingPage({super.key});
@@ -103,52 +104,111 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   if (status.isGranted) {
                     Get.offAllNamed(HomePage.routeName);
                   } else {
-                    showDialog(
-                        context: Get.context!,
-                        builder: (BuildContext context) => CupertinoAlertDialog(
-                              title: Text(
-                                "“Blott” Would Like to Send You Notifications",
-                                style: AppFonts.styleWithRobotoSemiBoldText(
-                                    color:
-                                        Theme.of(context).colorScheme.surface,
-                                    fSize: FontSizeValue.fontSize16),
-                              ),
-                              content: Text(
-                                "Notifications may include alerts, sounds, and icon badges. These can be configured in Settings.",
-                                style: AppFonts.styleWithRobotoRegularText(
-                                    color:
-                                        Theme.of(context).colorScheme.surface,
-                                    fSize: FontSizeValue.fontSize13),
-                              ),
-                              actions: <Widget>[
-                                CupertinoDialogAction(
-                                  isDefaultAction: true,
-                                  child: Text(
-                                    "Don’t Allow",
-                                    style: AppFonts.styleWithRobotoSemiBoldText(
-                                        color: AppColors.kBlue,
-                                        fSize: FontSizeValue.fontSize13),
+                   showDialog(
+                            context: Get.context!,
+                            builder: (BuildContext context) =>
+                                Theme(
+                                  data: ThemeData.light(),
+                                  child: CupertinoAlertDialog(
+                                    title: Text(
+                                      "“Blott” Would Like to Send You Notifications",
+                                      style: AppFonts.styleWithRobotoSemiBoldText(
+                                          color: AppColors.kBlack,
+                                          fSize: FontSizeValue.fontSize16),
+                                    ),
+                                    content: Text(
+                                      "Notifications may include alerts, sounds, and icon badges. These can be configured in Settings.",
+                                      style: AppFonts.styleWithRobotoRegularText(
+                                          color: AppColors.kBlack,
+                                          fSize: FontSizeValue.fontSize13),
+                                    ),
+                                    actions: <Widget>[
+                                      CupertinoDialogAction(
+
+                                        child: Text(
+                                          "Don’t Allow",
+                                          style: AppFonts
+                                              .styleWithRobotoRegularText(
+                                                  color: AppColors.kBlue,
+                                                  fSize:
+                                                      FontSizeValue.fontSize13),
+                                        ),
+                                        onPressed: () {
+                                          Get.back();
+                                          // Get.offAllNamed(HomePage.routeName);
+                                        },
+                                      ),
+                                      CupertinoDialogAction(
+                                        isDefaultAction: true,
+                                        child: Text(
+                                          "Allow",
+                                          style:
+                                              AppFonts.styleWithRobotoSemiBoldText(
+                                                  color: AppColors.kBlue,
+                                                  fSize:
+                                                      FontSizeValue.fontSize13),
+                                        ),
+                                        onPressed: () async {
+                                          await openAppSettings();
+                                        },
+                                      )
+                                    ],
                                   ),
-                                  onPressed: () {
-                                    Get.back();
-                                    Get.offAllNamed(HomePage.routeName);
-                                  },
-                                ),
-                                CupertinoDialogAction(
-                                  child: Text(
-                                    "Allow",
-                                    style: AppFonts.styleWithRobotoRegularText(
-                                        color: AppColors.kBlue,
-                                        fSize: FontSizeValue.fontSize13),
-                                  ),
-                                  onPressed: () async {
-                                    await openAppSettings();
-                                  },
-                                )
-                              ],
-                            ));
-                    // await openAppSettings();
-                    // Notification permissions denied
+                                ));
+
+                    // showDialog(
+                    //   context: Get.context!,
+                    //   builder: (BuildContext context) => AlertDialog(
+                    //     title: Text(
+                    //       "“Blott” Would Like to Send You Notifications",
+                    //       style: AppFonts.styleWithRobotoSemiBoldText(
+                    //         color: Colors.black,
+                    //         fSize: FontSizeValue.fontSize16,
+                    //       ),
+                    //       textAlign: TextAlign.center,
+                    //     ),
+                    //     content: Padding(
+                    //       padding: const EdgeInsets.only(top: 8.0),
+                    //       child: Text(
+                    //         "Notifications may include alerts, sounds, and icon badges. These can be configured in Settings.",
+                    //         style: AppFonts.styleWithRobotoRegularText(
+                    //           color: Colors.black,
+                    //           fSize: FontSizeValue.fontSize13,
+                    //         ),
+                    //         textAlign: TextAlign.center,
+                    //       ),
+                    //     ),
+                    //     actions: [
+                    //       TextButton(
+                    //         child: Text(
+                    //           "Don't Allow",
+                    //           style: AppFonts.styleWithRobotoRegularText(
+                    //               color: AppColors.kBlue,
+                    //               fSize: FontSizeValue.fontSize13),
+                    //         ),
+                    //         onPressed: () {
+                    //           Get.back();
+                    //           // Get.offAllNamed(HomePage.routeName);
+                    //         },
+                    //       ),
+                    //       TextButton(
+                    //         child: Text(
+                    //           "Allow",
+                    //           style: AppFonts.styleWithRobotoSemiBoldText(
+                    //               color: AppColors.kBlue,
+                    //               fSize: FontSizeValue.fontSize13),
+                    //         ),
+                    //         onPressed: () async {
+                    //           // Add your notification permission request logic here
+                    //           await openAppSettings();
+                    //           // Navigator.of(context).pop();
+                    //           // Get.back();
+                    //           // Get.offAllNamed(HomePage.routeName);
+                    //         },
+                    //       ),
+                    //     ],
+                    //   ),
+                    // );
                   }
 
                   // Get.offAllNamed(HomePage.routeName);
