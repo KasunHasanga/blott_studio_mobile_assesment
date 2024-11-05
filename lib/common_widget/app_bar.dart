@@ -22,9 +22,9 @@ class MainAppBar extends StatelessWidget {
       surfaceTintColor: Colors.transparent,
       title: Text(
         title,
-        style: AppFonts.styleWithRobotoMediumText(
+        style: AppFonts.styleWithRalewayBoldText(
             color: Theme.of(context).colorScheme.onSurface,
-            fSize: FontSizeValue.fontSize16),
+            fSize: FontSizeValue.fontSize32),
       ),
       actions: otherAction,
       backgroundColor: Theme.of(context).colorScheme.background,

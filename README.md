@@ -46,6 +46,10 @@ To run the application, follow these steps:
       fvm flutter run -t lib/main_development.dart --flavor development
       ```
 
-
+4. **For get andorid Apk**
+   - 
+    ```sh
+      fvm flutter build apk -t lib/main_production.dart --flavor production
+      ```
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

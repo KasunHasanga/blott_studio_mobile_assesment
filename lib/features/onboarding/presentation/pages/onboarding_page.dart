@@ -135,7 +135,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                         ),
                                         onPressed: () {
                                           Get.back();
-                                          // Get.offAllNamed(HomePage.routeName);
+                                          Get.offAllNamed(HomePage.routeName);
                                         },
                                       ),
                                       CupertinoDialogAction(

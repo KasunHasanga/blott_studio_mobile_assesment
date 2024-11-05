@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 class AppFonts {
   static const roboto = 'Roboto';
   static const rubik = 'Rubik';
+  static const raleway = 'Raleway';
 
   /// Gilroy light style. Default font size is 10, default color White.
   static TextStyle styleWithRobotoSemiBoldText(
@@ -49,6 +50,14 @@ class AppFonts {
           color: color,
           fontWeight: FontWeight.w700,
           fontFamily: roboto);
+
+  static TextStyle styleWithRalewayBoldText(
+          {Color color = Colors.black, double fSize = 3.2}) =>
+      TextStyle(
+          fontSize: fSize * (Get.width * 0.01),
+          color: color,
+          fontWeight: FontWeight.w800,
+          fontFamily: raleway);
 
   
 }
