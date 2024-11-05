@@ -35,7 +35,6 @@ class Routers {
         page: () => const HomePage(),
         bindings: [HomePageBinding()]),
 
-
     GetPage(
         name: ApiErrorPage.routeName,
         page: () => const ApiErrorPage(),

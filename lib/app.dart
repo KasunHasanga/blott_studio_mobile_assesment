@@ -25,6 +25,7 @@ class _AppState extends State<App> {
     loadDotEnv();
     super.initState();
   }
+
   Future loadDotEnv() async {
     // To load the .env file contents into dotenv.
     // NOTE: fileName defaults to .env and can be omitted in this case.

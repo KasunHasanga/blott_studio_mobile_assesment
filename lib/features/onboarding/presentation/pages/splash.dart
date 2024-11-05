@@ -14,7 +14,6 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-
   OnBoardingController onBoardingController = Get.find();
 
   @override
@@ -33,7 +32,7 @@ class _SplashPageState extends State<SplashPage> {
           width: 200,
           height: 200,
           child: Image(
-            image: AssetImage( AllImages().splashLogo),
+            image: AssetImage(AllImages().splashLogo),
           ),
         ),
       ),

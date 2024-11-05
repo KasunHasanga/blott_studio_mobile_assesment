@@ -55,6 +55,7 @@ dependencies:
   flutter_svg: ^2.0.9
   cached_network_image: ^3.3.1
   flutter_dotenv: ^5.2.1
+  mockito: ^5.3.0
 
 dev_dependencies:
   flutter_test:

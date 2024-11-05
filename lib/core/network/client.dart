@@ -30,7 +30,6 @@ class Clinet {
           log("🐛 REQUEST QUERY: " + options.queryParameters.toString());
           //log("🐛 REQUEST DATA: "+options.data.toString());
         }, onResponse: (response, handler) {
-          print(response);
           log("🐛 RESPONSE CODE: " + response.statusCode.toString());
           log("🐛 RESPONSE MESSAGE: " + response.statusMessage.toString());
           log("🐛 RESPONSE DATA: " + response.data.toString());

@@ -10,7 +10,6 @@ import '../../../../config/constants.dart';
 import '../../../../core/network/client.dart';
 import '../../../../core/shared_preferences.dart';
 
-
 class HomePageController extends GetxController {
   SharedPref sharedPref = SharedPref();
   final storage = const FlutterSecureStorage();
@@ -48,14 +47,16 @@ class HomePageController extends GetxController {
         if (kDebugMode) {
           print("Unexpected data format: ${response?.data}");
         }
-        Get.toNamed(ApiErrorPage.routeName,arguments:"${response?.data["error"]}" );
+        Get.toNamed(ApiErrorPage.routeName,
+            arguments: "${response?.data["error"]}");
         return false;
       }
     } catch (e) {
       if (kDebugMode) {
         print("Error: $e");
       }
-      Get.toNamed(ApiErrorPage.routeName,arguments:"Something went wrong. Please try again later." );
+      Get.toNamed(ApiErrorPage.routeName,
+          arguments: "Something went wrong. Please try again later.");
       return false;
     }
   }

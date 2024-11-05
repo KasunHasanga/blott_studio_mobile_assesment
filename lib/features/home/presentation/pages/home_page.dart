@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:kasun_hasanga_blott/common_widget/app_button.dart';
 import 'package:kasun_hasanga_blott/features/web_view/presentation/pages/web_view_page.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -127,7 +126,8 @@ class _HomePageState extends State<HomePage> {
                                   homePageController.newsResponseModel.length,
                               itemBuilder: (context, index) {
                                 return Container(
-                                  padding: const EdgeInsets.only(top: 16, bottom: 16),
+                                  padding: const EdgeInsets.only(
+                                      top: 16, bottom: 16),
                                   child: Row(
                                     children: [
                                       CachedNetworkImage(
@@ -155,8 +155,8 @@ class _HomePageState extends State<HomePage> {
                                                     color: Theme.of(context)
                                                         .colorScheme
                                                         .onSurface,
-                                                    fSize:
-                                                        FontSizeValue.fontSize11),
+                                                    fSize: FontSizeValue
+                                                        .fontSize11),
                                           ),
                                         ),
                                         placeholder: (context, url) =>
@@ -181,13 +181,15 @@ class _HomePageState extends State<HomePage> {
                                           children: [
                                             Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text(
                                                   "${homePageController.newsResponseModel[index].source}",
                                                   style: AppFonts
                                                       .styleWithGilroyMediumText(
-                                                          color: Theme.of(context)
+                                                          color: Theme.of(
+                                                                  context)
                                                               .colorScheme
                                                               .onSurface
                                                               .withOpacity(0.6),
@@ -195,15 +197,15 @@ class _HomePageState extends State<HomePage> {
                                                               .fontSize11),
                                                 ),
                                                 Text(
-                                                    DateFormat(DateTimeFormatType
-                                                            .dayMonthYear)
-                                                        .format(DateTime
-                                                            .fromMillisecondsSinceEpoch(
-                                                                homePageController
-                                                                        .newsResponseModel[
-                                                                            index]
-                                                                        .datetime! *
-                                                                    1000))
+                                                    DateFormat(
+                                                            DateTimeFormatType
+                                                                .dayMonthYear)
+                                                        .format(DateTime.fromMillisecondsSinceEpoch(
+                                                            homePageController
+                                                                    .newsResponseModel[
+                                                                        index]
+                                                                    .datetime! *
+                                                                1000))
                                                         .toUpperCase(),
                                                     style: AppFonts
                                                         .styleWithGilroyMediumText(
@@ -211,17 +213,19 @@ class _HomePageState extends State<HomePage> {
                                                                     context)
                                                                 .colorScheme
                                                                 .onSurface
-                                                                .withOpacity(0.6),
+                                                                .withOpacity(
+                                                                    0.6),
                                                             fSize: FontSizeValue
                                                                 .fontSize11)),
                                               ],
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 8,
                                             ),
                                             GestureDetector(
                                               onTap: () {
-                                                Get.toNamed(WebViewPage.routeName,
+                                                Get.toNamed(
+                                                    WebViewPage.routeName,
                                                     parameters: {
                                                       "url":
                                                           "${homePageController.newsResponseModel[index].url}",
@@ -232,10 +236,12 @@ class _HomePageState extends State<HomePage> {
                                               child: Text(
                                                   "${homePageController.newsResponseModel[index].headline}",
                                                   maxLines: 3,
-                                                  overflow: TextOverflow.ellipsis,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                   style: AppFonts
                                                       .styleWithGilroyMediumText(
-                                                          color: Theme.of(context)
+                                                          color: Theme.of(
+                                                                  context)
                                                               .colorScheme
                                                               .onSurface
                                                               .withOpacity(0.6),

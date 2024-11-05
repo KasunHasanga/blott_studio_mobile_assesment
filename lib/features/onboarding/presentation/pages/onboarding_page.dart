@@ -53,8 +53,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 SizedBox(
                   height: 98,
                   width: 98,
-                  child: SvgPicture.asset(
-                      AllImages().svgNotificationIcon,
+                  child: SvgPicture.asset(AllImages().svgNotificationIcon,
                       semanticsLabel: "svgNotificationIcongg"),
                 ),
                 const SizedBox(
