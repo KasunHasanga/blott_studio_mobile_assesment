@@ -63,7 +63,7 @@ class AppTextField extends StatelessWidget {
       onTapOutside: (event) {
         FocusScope.of(context).requestFocus(FocusNode());
       },
-      style: AppFonts.styleWithGilroyRegularText(
+      style: AppFonts.styleWithRobotoRegularText(
           fSize: FontSizeValue.fontSize16,
           color: textColor ?? Theme.of(context).colorScheme.onSurface),
       decoration: InputDecoration(
@@ -72,7 +72,7 @@ class AppTextField extends StatelessWidget {
         counterText: '',
         suffixIcon: suffixIcon,
         errorText: errorText,
-        errorStyle: AppFonts.styleWithGilroyMediumText(
+        errorStyle: AppFonts.styleWithRobotoMediumText(
             color: AppColors.kRed, fSize: FontSizeValue.fontSize14),
         hintText: labelText,
         hintStyle: TextStyle(

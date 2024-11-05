@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                                             "",
                                             textAlign: TextAlign.center,
                                             style: AppFonts
-                                                .styleWithGilroyMediumText(
+                                                .styleWithRobotoMediumText(
                                                     color: Theme.of(context)
                                                         .colorScheme
                                                         .onSurface,
@@ -187,7 +187,7 @@ class _HomePageState extends State<HomePage> {
                                                 Text(
                                                   "${homePageController.newsResponseModel[index].source}",
                                                   style: AppFonts
-                                                      .styleWithGilroyMediumText(
+                                                      .styleWithRobotoMediumText(
                                                           color: Theme.of(
                                                                   context)
                                                               .colorScheme
@@ -208,7 +208,7 @@ class _HomePageState extends State<HomePage> {
                                                                 1000))
                                                         .toUpperCase(),
                                                     style: AppFonts
-                                                        .styleWithGilroyMediumText(
+                                                        .styleWithRobotoMediumText(
                                                             color: Theme.of(
                                                                     context)
                                                                 .colorScheme
@@ -239,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                   style: AppFonts
-                                                      .styleWithGilroyMediumText(
+                                                      .styleWithRobotoMediumText(
                                                           color: Theme.of(
                                                                   context)
                                                               .colorScheme

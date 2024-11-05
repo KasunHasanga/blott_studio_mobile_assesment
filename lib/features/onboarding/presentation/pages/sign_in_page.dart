@@ -94,7 +94,7 @@ class _SignInPageState extends State<SignInPage> {
               Text(
                 'Your legal name'.tr,
                 textAlign: TextAlign.start,
-                style: AppFonts.styleWithGilroyMediumText(
+                style: AppFonts.styleWithRobotoMediumText(
                     color: Theme.of(context).colorScheme.onSurface,
                     fSize: FontSizeValue.fontSize25),
               ),
@@ -105,7 +105,7 @@ class _SignInPageState extends State<SignInPage> {
                 'We need to know a bit about you so that we can create your account.'
                     .tr,
                 textAlign: TextAlign.start,
-                style: AppFonts.styleWithGilroyMediumText(
+                style: AppFonts.styleWithRobotoMediumText(
                     color: Theme.of(context)
                         .colorScheme
                         .onSurface

@@ -31,7 +31,7 @@ class AppButton extends StatelessWidget {
       elevation: 0.0,
       onPressed: action,
       textStyle:
-          AppFonts.styleWithGilroyRegularText(fSize: FontSizeValue.fontSize14),
+          AppFonts.styleWithRobotoRegularText(fSize: FontSizeValue.fontSize14),
       constraints: const BoxConstraints(maxWidth: double.infinity),
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
       highlightColor: backgroundColor,
@@ -45,7 +45,7 @@ class AppButton extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(
           title,
-          style: AppFonts.styleWithGilroyRegularText( color: titleColor,
+          style: AppFonts.styleWithRobotoRegularText( color: titleColor,
               fSize: fSize),
         ),
       ),

@@ -50,7 +50,7 @@ class _ApiErrorPageState extends State<ApiErrorPage> {
               children: [
                 Text(
                   Get.arguments,
-                  style: AppFonts.styleWithGilroyMediumText(
+                  style: AppFonts.styleWithRobotoMediumText(
                       color: Theme.of(context).colorScheme.onSurface,
                       fSize: FontSizeValue.fontSize11),
                 )

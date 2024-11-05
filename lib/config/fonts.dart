@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppFonts {
-  static const gilroy = 'Gilroy';
+  static const gilroy = 'Roboto';
 
   /// Gilroy light style. Default font size is 10, default color White.
-  static TextStyle styleWithGilroySemiBoldText(
+  static TextStyle styleWithRobotoSemiBoldText(
           {Color color = Colors.white, double fSize = 3.2}) =>
       TextStyle(
           fontSize: fSize * (Get.width * 0.01),
@@ -14,7 +14,7 @@ class AppFonts {
           fontFamily: gilroy);
 
   ///
-  static TextStyle styleWithGilroyMediumText({
+  static TextStyle styleWithRobotoMediumText({
     Color color = Colors.white,
     double fSize = 3.2,
   }) =>
@@ -25,7 +25,7 @@ class AppFonts {
           fontFamily: gilroy);
 
   ///
-  static TextStyle styleWithGilroyRegularText(
+  static TextStyle styleWithRobotoRegularText(
           {Color color = Colors.black, double fSize = 3.2}) =>
       TextStyle(
           fontSize: fSize * (Get.width * 0.01),
@@ -33,7 +33,7 @@ class AppFonts {
           fontFamily: gilroy);
 
   ///
-  static TextStyle styleWithGilroyBoldText(
+  static TextStyle styleWithRobotoBoldText(
           {Color color = Colors.black, double fSize = 3.2}) =>
       TextStyle(
           fontSize: fSize * (Get.width * 0.01),
@@ -41,14 +41,5 @@ class AppFonts {
           fontWeight: FontWeight.w700,
           fontFamily: gilroy);
 
-  static TextStyle styleWithGilroyMediumTextStrikeThrough({
-    Color color = Colors.white,
-    double fSize = 3.2,
-  }) =>
-      TextStyle(
-          fontSize: fSize * (Get.width * 0.01),
-          color: color,
-          fontWeight: FontWeight.w500,
-          decoration: TextDecoration.lineThrough,
-          fontFamily: gilroy);
+  
 }

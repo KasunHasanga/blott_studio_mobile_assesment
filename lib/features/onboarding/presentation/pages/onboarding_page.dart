@@ -63,7 +63,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   child: Text(
                     'Get the most out of Blott ✅'.tr,
                     textAlign: TextAlign.start,
-                    style: AppFonts.styleWithGilroyMediumText(
+                    style: AppFonts.styleWithRobotoMediumText(
                         color: Theme.of(context).colorScheme.onSurface,
                         fSize: FontSizeValue.fontSize24),
                   ),
@@ -75,7 +75,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   'Allow notifications to stay in the loop with your payments, requests and groups.'
                       .tr,
                   textAlign: TextAlign.center,
-                  style: AppFonts.styleWithGilroyRegularText(
+                  style: AppFonts.styleWithRobotoRegularText(
                       color: Theme.of(context)
                           .colorScheme
                           .onSurface
@@ -108,14 +108,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         builder: (BuildContext context) => CupertinoAlertDialog(
                               title: Text(
                                 "“Blott” Would Like to Send You Notifications",
-                                style: AppFonts.styleWithGilroySemiBoldText(
+                                style: AppFonts.styleWithRobotoSemiBoldText(
                                     color:
                                         Theme.of(context).colorScheme.surface,
                                     fSize: FontSizeValue.fontSize16),
                               ),
                               content: Text(
                                 "Notifications may include alerts, sounds, and icon badges. These can be configured in Settings.",
-                                style: AppFonts.styleWithGilroyRegularText(
+                                style: AppFonts.styleWithRobotoRegularText(
                                     color:
                                         Theme.of(context).colorScheme.surface,
                                     fSize: FontSizeValue.fontSize13),
@@ -125,7 +125,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                   isDefaultAction: true,
                                   child: Text(
                                     "Don’t Allow",
-                                    style: AppFonts.styleWithGilroySemiBoldText(
+                                    style: AppFonts.styleWithRobotoSemiBoldText(
                                         color: AppColors.kBlue,
                                         fSize: FontSizeValue.fontSize13),
                                   ),
@@ -137,7 +137,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                 CupertinoDialogAction(
                                   child: Text(
                                     "Allow",
-                                    style: AppFonts.styleWithGilroyRegularText(
+                                    style: AppFonts.styleWithRobotoRegularText(
                                         color: AppColors.kBlue,
                                         fSize: FontSizeValue.fontSize13),
                                   ),

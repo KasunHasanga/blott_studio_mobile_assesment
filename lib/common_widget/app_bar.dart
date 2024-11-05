@@ -24,7 +24,7 @@ class MainAppBar extends StatelessWidget {
       elevation: 0,
       centerTitle: false,
       surfaceTintColor: Colors.transparent,
-      title: Text(title,  style: AppFonts.styleWithGilroyMediumText(
+      title: Text(title,  style: AppFonts.styleWithRobotoMediumText(
           color:Theme.of(context).colorScheme.onSurface,fSize: FontSizeValue.fontSize16),),
 actions: otherAction,
 
