@@ -16,7 +16,7 @@ class WebViewPage extends StatefulWidget {
 class _WebViewPageState extends State<WebViewPage> {
   late WebViewPageController webViewPageController;
 
-  var parameters =Get.parameters;
+  var parameters = Get.parameters;
 
   @override
   void initState() {
@@ -55,11 +55,12 @@ class _WebViewPageState extends State<WebViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.surface,
-        appBar:  PreferredSize(
+        appBar: PreferredSize(
           preferredSize: const Size.fromHeight(60),
-          child: MainAppBar(title:"${Get.parameters['headline']}",),
+          child: MainAppBar(
+            title: "${Get.parameters['headline']}",
+          ),
         ),
-        // drawer: const AppDrawer(),
         body: WebViewWidget(controller: controller));
   }
 }

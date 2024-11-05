@@ -4,7 +4,6 @@ import '../../../../common_widget/app_text_field.dart';
 import '../../../../config/constants.dart';
 import '../../../../config/fonts.dart';
 import '../controller/onboarding_controller.dart';
-import 'onboarding_page.dart';
 
 class SignInPage extends StatefulWidget {
   static const routeName = '/login';
@@ -60,9 +59,9 @@ class _SignInPageState extends State<SignInPage> {
                   });
                 }
                 if (formKeySignIn.currentState!.validate()) {
-
                   onBoardingController.saveUserInfo(
-                      firstNameTextEditingController.text, lastNameTextEditingController.text);
+                      firstNameTextEditingController.text,
+                      lastNameTextEditingController.text);
                 }
               }
             : null,
@@ -73,12 +72,15 @@ class _SignInPageState extends State<SignInPage> {
             borderRadius: BorderRadius.circular(50),
             color: isUserFillNamed()
                 ? Theme.of(context).colorScheme.primary
-                : Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                : Theme.of(context).colorScheme.primary.withOpacity(0.3),
           ),
-          child: Icon(
-            Icons.navigate_next,
-            size: 24,
-            color: Theme.of(context).colorScheme.background,
+          child: SizedBox(
+            height: 24,
+            width: 24,
+            child: Icon(
+              Icons.navigate_next,
+              color: Theme.of(context).colorScheme.background,
+            ),
           ),
         ),
       ),
@@ -95,18 +97,18 @@ class _SignInPageState extends State<SignInPage> {
               Text(
                 'Your legal name'.tr,
                 textAlign: TextAlign.start,
-                style: AppFonts.styleWithGilroyMediumText(
+                style: AppFonts.styleWithRobotoBoldText(
                     color: Theme.of(context).colorScheme.onSurface,
                     fSize: FontSizeValue.fontSize25),
               ),
               const SizedBox(
-                height: 16,
+                height: 26,
               ),
               Text(
                 'We need to know a bit about you so that we can create your account.'
                     .tr,
                 textAlign: TextAlign.start,
-                style: AppFonts.styleWithGilroyMediumText(
+                style: AppFonts.styleWithRobotoRegularText(
                     color: Theme.of(context)
                         .colorScheme
                         .onSurface
@@ -125,7 +127,7 @@ class _SignInPageState extends State<SignInPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: AppTextField(
-                        labelText: 'First Name'.tr,
+                        labelText: 'First name'.tr,
                         textController: firstNameTextEditingController,
                         keyBoardType: TextInputType.text,
                         onValidate: (value) {
@@ -136,7 +138,7 @@ class _SignInPageState extends State<SignInPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: AppTextField(
-                        labelText: 'Last Name'.tr,
+                        labelText: 'Last name'.tr,
                         textController: lastNameTextEditingController,
                         keyBoardType: TextInputType.text,
                         onValidate: (value) {

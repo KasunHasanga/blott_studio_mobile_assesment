@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
+import 'package:kasun_hasanga_blott/config/colors.dart';
 
 import '../../../../config/app_images.dart';
 import '../controller/onboarding_controller.dart';
@@ -14,7 +15,6 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-
   OnBoardingController onBoardingController = Get.find();
 
   @override
@@ -27,13 +27,13 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: AppColors.kBlack,
       body: Center(
         child: SizedBox(
-          width: 200,
-          height: 200,
+          width: 188,
+          height: 188,
           child: Image(
-            image: AssetImage( AllImages().splashLogo),
+            image: AssetImage(AllImages().splashLogo),
           ),
         ),
       ),

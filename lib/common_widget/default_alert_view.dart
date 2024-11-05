@@ -41,7 +41,7 @@ class DefaultAlertView extends StatelessWidget {
             child: Text(
               title,
               textAlign: TextAlign.center,
-              style: AppFonts.styleWithGilroyRegularText(
+              style: AppFonts.styleWithRobotoRegularText(
                   color: Theme.of(context).colorScheme.onSurface, fSize: FontSizeValue.fontSize16),
             ),
           ),

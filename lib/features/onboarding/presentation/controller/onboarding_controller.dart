@@ -10,22 +10,16 @@ import '../../../../core/shared_preferences.dart';
 import '../pages/onboarding_page.dart';
 import '../pages/sign_in_page.dart';
 
-
 class OnBoardingController extends GetxController {
   SharedPref sharedPref = SharedPref();
   final storage = const FlutterSecureStorage();
-  RxString selectedLanguage ="si".obs;
-
-  @override
-  void onInit() {
-
-    super.onInit();
-  }
+  RxString selectedLanguage = "si".obs;
 
   checkSessionStatus() async {
     await Future.delayed(const Duration(seconds: 5), () async {
       if (await sharedPref.check(ShardPrefKey.appLocale)) {
-        String currentLocale = await sharedPref.readSingle(ShardPrefKey.appLocale);
+        String currentLocale =
+            await sharedPref.readSingle(ShardPrefKey.appLocale);
         if (kDebugMode) {
           print(currentLocale);
         }
@@ -44,12 +38,11 @@ class OnBoardingController extends GetxController {
         // _helper.changeLanguage(locale);
       }
 
-        if (await sharedPref.check( ShardPrefKey.userFirstName)) {
-          Get.off(() => const HomePage());
-        } else {
-          Get.off(() => const SignInPage());
-        }
-
+      if (await sharedPref.check(ShardPrefKey.userFirstName)) {
+        Get.off(() => const HomePage());
+      } else {
+        Get.off(() => const SignInPage());
+      }
     });
   }
 
@@ -59,15 +52,15 @@ class OnBoardingController extends GetxController {
     sharedPref.saveSingle(ShardPrefKey.appLocale, selectedLocale.languageCode);
     Get.updateLocale(selectedLocale);
     if (selectedLocale.languageCode == "si") {
-      selectedLanguage.value ="si";
+      selectedLanguage.value = "si";
     } else if (selectedLocale.languageCode == "en") {
       selectedLanguage.value = "en";
     }
   }
 
-  void saveUserInfo(String firstName,String lastName)async{
-   await sharedPref.saveSingle(ShardPrefKey.userFirstName, firstName);
-   await sharedPref.saveSingle(ShardPrefKey.userLastName, lastName);
-   Get.toNamed(OnboardingPage.routeName);
+  void saveUserInfo(String firstName, String lastName) async {
+    await sharedPref.saveSingle(ShardPrefKey.userFirstName, firstName);
+    await sharedPref.saveSingle(ShardPrefKey.userLastName, lastName);
+    Get.toNamed(OnboardingPage.routeName);
   }
 }
