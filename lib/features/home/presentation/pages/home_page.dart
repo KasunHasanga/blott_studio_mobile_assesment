@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   bool isLoading = false;
-  RefreshController _refreshController =
+  final RefreshController _refreshController =
   RefreshController(initialRefresh: false);
 
 
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         key: globalKey,
         extendBodyBehindAppBar: true,
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor:isLightModeSelected?AppColors.kBlack: Theme.of(context).colorScheme.background,
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(60),
           child: MainAppBar(
