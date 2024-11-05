@@ -4,7 +4,6 @@ import 'package:kasun_hasanga_blott/features/web_view/presentation/pages/web_vie
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
-import '../../../../common_widget/app_bar.dart';
 import '../../../../config/colors.dart';
 import '../../../../config/constants.dart';
 import '../../../../config/fonts.dart';
@@ -78,40 +77,6 @@ class _HomePageState extends State<HomePage> {
         key: globalKey,
         extendBodyBehindAppBar: true,
         backgroundColor:isLightModeSelected?AppColors.kBlack: Theme.of(context).colorScheme.background,
-        // appBar: PreferredSize(
-        //   preferredSize: const Size.fromHeight(60),
-        //   child: MainAppBar(
-        //     title: 'Hey ${homePageController.userName}'.tr,
-        //     otherAction: [
-        //       GestureDetector(
-        //         onTap: () {
-        //           setState(() {
-        //             isLightModeSelected = !isLightModeSelected;
-        //             ThemeService().switchTheme(isLightModeSelected);
-        //             isAuto = false;
-        //             setState(() {});
-        //           });
-        //         },
-        //         child: isLightModeSelected
-        //             ? const Icon(
-        //                 Icons.wb_sunny,
-        //                 key: Key('sunny'),
-        //                 color: Colors.white,
-        //                 size: 30,
-        //               )
-        //             : const Icon(
-        //                 Icons.brightness_2,
-        //                 key: Key('moon'),
-        //                 color: Colors.black,
-        //                 size: 30,
-        //               ),
-        //       ),
-        //       const SizedBox(
-        //         width: 15,
-        //       )
-        //     ],
-        //   ),
-        // ),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
