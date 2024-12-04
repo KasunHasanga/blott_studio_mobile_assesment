@@ -12,4 +12,4 @@ jobs:
     # Get flutter packages
     - run: flutter pub get
     # Build :D 
-    - run: flutter build apk
+    - run: flutter build apk -t lib/main_production.dart --flavor production
